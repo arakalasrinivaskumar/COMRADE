@@ -26,7 +26,7 @@ Built by **Sanchari** · React + Vite + Supabase
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/comrade-website.git
+git clone https://github.com/arakalasrinivaskumar/COMRADE.git
 cd comrade-website
 
 # 2. Install dependencies
