@@ -137,7 +137,7 @@ git push origin main
 
 | Day | Goal |
 |---|---|
-| Day 1 | ✅ Setup complete — React + GitHub + Supabase + folder structure |
+| Day 1 | Setup complete — React + GitHub + Supabase + folder structure |
 | Day 2 | About + Features sections |
 | Day 3 | How It Works + Why COMRADE |
 | Day 4 | Sanchari + Contact + Footer |

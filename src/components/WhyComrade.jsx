@@ -14,21 +14,21 @@ function WhyComrade() {
           <div style={{ background: 'var(--color-card)', border: '1px solid var(--color-border)', borderRadius: 'var(--border-radius)', padding: '32px' }}>
             <h3 style={{ color: 'var(--color-text-muted)', marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>Traditional Travel Apps</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', color: 'var(--color-text-muted)' }}>
-              <li>📍 "Where to go?"</li>
-              <li>⭐ Generic reviews</li>
-              <li>🗺️ Basic maps</li>
-              <li>❌ No community</li>
-              <li>❌ No safety layer</li>
+              <li>- "Where to go?"</li>
+              <li>- Generic reviews</li>
+              <li>- Basic maps</li>
+              <li>- No community</li>
+              <li>- No safety layer</li>
             </ul>
           </div>
           <div style={{ background: 'var(--color-card)', border: '1px solid var(--color-primary)', borderRadius: 'var(--border-radius)', padding: '32px' }}>
             <h3 style={{ color: 'var(--color-primary)', marginBottom: '16px', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px' }}>COMRADE</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <li>🔭 Local Lens — real context</li>
-              <li>⭐ Perspective Reviews</li>
-              <li>⚡ Live Pulse — real time</li>
-              <li>✅ Travel community</li>
-              <li>🆘 Always-on SOS</li>
+              <li>+ Local Lens — real context</li>
+              <li>+ Perspective Reviews</li>
+              <li>+ Live Pulse — real time</li>
+              <li>+ Travel community</li>
+              <li>+ Always-on SOS</li>
             </ul>
           </div>
         </div>

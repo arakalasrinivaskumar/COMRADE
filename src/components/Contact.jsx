@@ -43,7 +43,7 @@ function Contact() {
             borderRadius: 'var(--border-radius)', padding: '16px 20px',
             marginBottom: '24px', color: '#52b788',
           }}>
-            ✅ Message sent! We will get back to you soon.
+            Message sent! We will get back to you soon.
           </div>
         )}
 
@@ -53,7 +53,7 @@ function Contact() {
             borderRadius: 'var(--border-radius)', padding: '16px 20px',
             marginBottom: '24px', color: '#ff6b6b',
           }}>
-            ❌ Something went wrong. Please try again.
+            Something went wrong. Please try again.
           </div>
         )}
 
