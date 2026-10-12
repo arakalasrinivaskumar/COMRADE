@@ -558,3 +558,22 @@
     animation: none;
   }
 }
+.mt-controls .mt-button {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.mt-controls .mt-primary,
+.mt-controls .mt-secondary {
+  color: #ffffff;
+}
+
+.mt-controls .mt-outline {
+  color: #075e4b;
+  background-color: #ffffff;
+  border: 1px solid #075e4b;
+}
+
+.mt-controls .mt-outline:hover {
+  background-color: #e8f5ef;
+}

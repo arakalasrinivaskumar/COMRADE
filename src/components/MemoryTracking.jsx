@@ -509,8 +509,11 @@ const handleUseLocation = () => {
             </div>
             <div className="mt-map-shell">
               <MapContainer center={mapCenter} zoom={position ? 15 : 5} scrollWheelZoom className="mt-map">
-                <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <MapController target={mapTarget} recenterSignal={recenterSignal} />
+    <TileLayer
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+  maxZoom={19}
+/>         <MapController target={mapTarget} recenterSignal={recenterSignal} />
                 <MapClickPicker enabled={pickMode} onPick={handleMapPick} />
                {position && (
   <>
