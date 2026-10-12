@@ -1,16 +1,95 @@
-# React + Vite
+# COMRADE Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Travel the place. Experience the place. Connect with the people experiencing it.
 
-Currently, two official plugins are available:
+Built by **Sanchari** using React, Vite, and Supabase.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Team
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Person | Role |
+|---|---|
+| **Srinivas** | Technical Lead — Setup, Routing, Integration, Deployment |
+| **Pravallika** | Frontend — Page Sections and UI |
+| **Anusri** | Backend — Supabase Tables and Form Integration |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- Git
+
+### Setup
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/arakalasrinivaskumar/COMRADE.git
+   ```
+
+2. Navigate into the project folder:
+
+   ```bash
+   cd COMRADE/comrade-website
+   ```
+
+   If `package.json` is directly inside the cloned repository, use `cd COMRADE` instead.
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Configure environment variables if required. If `.env.example` exists, copy it to `.env` and fill in the required Supabase credentials.
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+### Production Build
+
+To check whether the application builds successfully:
+
+```bash
+npm run build
+```
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- CSS
+- Supabase
+
+---
+
+## Main Features
+
+- Destination discovery
+- Travel experiences
+- Memory and journey tracking
+- Bucket list
+- COMRADE community
+- Safety and SOS features
+
+---
+
+## Development Responsibilities
+
+- **Pravallika:** Frontend UI and page sections.
+- **Anusri:** Supabase tables and form integration.
+- **Srinivas:** Project setup, routing, integration, and deployment.
+
+---
+
+Made for travellers, by travellers.

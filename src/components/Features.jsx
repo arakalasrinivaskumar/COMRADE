@@ -46,10 +46,12 @@ function Features() {
 
   return (
     <section className="features-section" id="features">
-      {/* LEFT: Travel image */}
+      {/* Left: Travel image */}
       <div className="features-image">
         <div className="features-image-overlay">
-          <p className="features-image-label">THE COMRADE EXPERIENCE</p>
+          <p className="features-image-label">
+            THE COMRADE EXPERIENCE
+          </p>
 
           <h2>
             Go beyond
@@ -63,10 +65,12 @@ function Features() {
         </div>
       </div>
 
-      {/* RIGHT: Heading and feature boxes */}
+      {/* Right: Heading and feature cards */}
       <div className="features-content">
         <div className="features-heading">
-          <p className="features-label">MADE FOR YOUR JOURNEY</p>
+          <p className="features-label">
+            MADE FOR YOUR JOURNEY
+          </p>
 
           <h2>
             Everything you need,
@@ -88,8 +92,14 @@ function Features() {
               key={feature.number}
             >
               <div className="feature-card-top">
-                <span className="feature-number">{feature.number}</span>
-                <span className="feature-icon" aria-hidden="true">
+                <span className="feature-number">
+                  {feature.number}
+                </span>
+
+                <span
+                  className="feature-icon"
+                  aria-hidden="true"
+                >
                   {feature.icon}
                 </span>
               </div>
@@ -103,7 +113,7 @@ function Features() {
         </div>
 
         <div className="features-note">
-          <span className="features-note-line"></span>
+          <span className="features-note-line" aria-hidden="true" />
           <p>Less planning stress. More meaningful journeys.</p>
         </div>
       </div>

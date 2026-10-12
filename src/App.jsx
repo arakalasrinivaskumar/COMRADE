@@ -19,8 +19,6 @@ import Insights from "./pages/Insights";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
-
-  // Stores the place selected in Discover.
   const [selectedPlace, setSelectedPlace] = useState(null);
 
   function navigateTo(page) {
@@ -28,67 +26,60 @@ function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Connect Discover to the existing Memory Tracking map.
   function handleViewOnMap(place) {
     setSelectedPlace(place);
-
-    // Keep the home page open so the existing map is available.
     setCurrentPage("home");
 
-    // Scroll to the existing map after React renders.
     window.setTimeout(() => {
-      document.getElementById("memory-tracking")?.scrollIntoView({
+      document.getElementById("memories")?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-    }, 100);
+    }, 150);
   }
 
   return (
     <div>
-      <Navbar
-        currentPage={currentPage}
-        navigateTo={navigateTo}
-      />
+      <Navbar currentPage={currentPage} navigateTo={navigateTo} />
 
       {currentPage === "home" && (
-        <>
-          <div id="home">
+        <main>
+          <section id="home">
             <Hero />
-          </div>
+          </section>
 
-          <div id="features">
+          <section id="features">
             <Features />
-          </div>
+          </section>
 
-          <div id="how-it-works">
+          <section id="how-it-works">
             <HowItWorks />
-          </div>
+          </section>
 
-          <div id="discover">
+          <section id="discover">
             <Discover onViewOnMap={handleViewOnMap} />
-          </div>
+          </section>
 
-          <div id="destinations">
+          <section id="destinations">
             <Destination />
-          </div>
+          </section>
 
-          <div id="memories">
+          <section id="memories">
             <MemoryTracking selectedPlace={selectedPlace} />
-          </div>
+          </section>
 
-          <div id="community">
+          <section id="community">
             <ComradeCommunity />
-          </div>
+          </section>
 
-          <div id="sos">
+          <section id="sos">
             <SOS />
-          </div>
+          </section>
 
-          <div id="join">
+          <section id="join">
             <CTA />
-          </div>
-        </>
+          </section>
+        </main>
       )}
 
       {currentPage === "journey" && <MyJourney />}

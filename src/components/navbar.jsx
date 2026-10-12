@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 
 function Navbar({ currentPage, navigateTo }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ function Navbar({ currentPage, navigateTo }) {
         className="logo"
         onClick={() => handleNavigation("home")}
       >
-        COMRADE<span>®</span>
+        COMRADE<span>┬«</span>
       </button>
 
       <div className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
@@ -67,7 +67,7 @@ function Navbar({ currentPage, navigateTo }) {
             aria-expanded={travelMenuOpen}
             onClick={() => setTravelMenuOpen((open) => !open)}
           >
-            My Travel ▾
+            My Travel Γû╛
           </button>
 
           {travelMenuOpen && (
@@ -76,28 +76,28 @@ function Navbar({ currentPage, navigateTo }) {
                 type="button"
                 onClick={() => handleNavigation("journey")}
               >
-                🌍 My Journey
+                ≡ƒîì My Journey
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("trips")}
               >
-                ✈️ Trips
+                Γ£ê∩╕Å Trips
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("bucketlist")}
               >
-                ⭐ Bucket List
+                Γ¡É Bucket List
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("insights")}
               >
-                📊 Insights
+                ≡ƒôè Insights
               </button>
             </div>
           )}
@@ -116,7 +116,7 @@ function Navbar({ currentPage, navigateTo }) {
         className="nav-sos"
         onClick={() => scrollToSection("sos")}
       >
-        SOS <span>🔔</span>
+        SOS <span>≡ƒöö</span>
       </button>
 
       <button
@@ -124,7 +124,7 @@ function Navbar({ currentPage, navigateTo }) {
         className="nav-join"
         onClick={() => scrollToSection("join")}
       >
-        Join COMRADE →
+        Join COMRADE ΓåÆ
       </button>
 
       <button
@@ -134,7 +134,7 @@ function Navbar({ currentPage, navigateTo }) {
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={menuOpen}
       >
-        {menuOpen ? "✕" : "☰"}
+        {menuOpen ? "Γ£ò" : "Γÿ░"}
       </button>
     </nav>
   );

@@ -76,7 +76,9 @@ function HowItWorks() {
               key={step.number}
             >
               <div className="journey-circle">
-                <span className="journey-number">{step.number}</span>
+                <span className="journey-number">
+                  {step.number}
+                </span>
 
                 <h3>{step.title}</h3>
               </div>
@@ -89,33 +91,33 @@ function HowItWorks() {
         </div>
 
         <div className="journey-footer">
-          <span className="journey-footer-line"></span>
+          <span className="journey-footer-line" aria-hidden="true" />
           <p>Discover more. Experience more. Remember forever.</p>
         </div>
       </div>
 
-      {/* Right side: Inclined travel image */}
+      {/* Right side: Travel image */}
       <div className="how-image">
-  <div className="how-image-overlay"></div>
+        <div className="how-image-overlay" />
 
-  <div className="how-image-caption">
-    <span>YOUR NEXT ADVENTURE</span>
+        <div className="how-image-caption">
+          <span>YOUR NEXT ADVENTURE</span>
 
-    <h3>
-      Go beyond
-      <br />
-      <em>the ordinary.</em>
-    </h3>
+          <h3>
+            Go beyond
+            <br />
+            <em>the ordinary.</em>
+          </h3>
 
-    <p>Meet. Explore. Belong.</p>
-  </div>
+          <p>Meet. Explore. Belong.</p>
+        </div>
 
-  <div className="travel-stamp" aria-hidden="true">
-    <span>GO</span>
-    <span>EXPLORE</span>
-    <span>REPEAT</span>
-  </div>
-</div>
+        <div className="travel-stamp" aria-hidden="true">
+          <span>GO</span>
+          <span>EXPLORE</span>
+          <span>REPEAT</span>
+        </div>
+      </div>
     </section>
   );
 }
