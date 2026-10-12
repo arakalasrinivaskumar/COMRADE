@@ -1,0 +1,267 @@
+/* ===== COMRADE LIVE TRACKING ===== */
+
+.live-tracking-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  color: #18352f;
+  box-sizing: border-box;
+}
+
+.live-tracking-heading {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.live-tracking-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #238875;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.live-tracking-heading h2 {
+  margin: 0 0 16px;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.live-tracking-heading h2 span {
+  color: #238875;
+}
+
+.live-tracking-heading p {
+  max-width: 580px;
+  margin: 0 auto;
+  color: #64756f;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Statistics */
+
+.tracking-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.tracking-stat {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e4ece8;
+  border-radius: 16px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.tracking-stat span {
+  display: block;
+  margin-bottom: 10px;
+  color: #788780;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.tracking-stat strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #18352f;
+  font-size: clamp(16px, 2vw, 23px);
+}
+
+/* Map container */
+
+.tracking-map-shell {
+  overflow: hidden;
+  border: 1px solid #e0e9e5;
+  border-radius: 22px;
+  background: #ffffff;
+}
+
+.tracking-map-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+}
+
+.tracking-map-toolbar > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tracking-map-toolbar strong {
+  color: #18352f;
+  font-size: 17px;
+}
+
+.tracking-map-toolbar span {
+  color: #788780;
+  font-size: 13px;
+}
+
+.tracking-recenter-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #dce8e3;
+  border-radius: 12px;
+  background: #f5faf7;
+  color: #238875;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tracking-recenter-button:hover {
+  background: #e9f5ef;
+}
+
+.tracking-map {
+  width: 100%;
+  height: 480px;
+  min-height: 320px;
+  z-index: 1;
+}
+
+/* Current GPS marker */
+
+.comrade-location-icon {
+  border: none !important;
+  background: transparent !important;
+}
+
+.comrade-location-dot {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #2588f4;
+  box-shadow: 0 0 0 7px rgba(37, 136, 244, 0.2);
+}
+
+.comrade-location-dot span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* GPS message */
+
+.tracking-map-note {
+  padding: 14px 20px;
+  border-top: 1px solid #e8efeb;
+  background: #f8fbf9;
+  color: #5e7069;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Tracking controls */
+
+.tracking-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin: 24px 0 16px;
+}
+
+.tracking-button {
+  min-width: 150px;
+  min-height: 48px;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 14px;
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tracking-button:hover {
+  transform: translateY(-2px);
+}
+
+.tracking-start {
+  background: #238875;
+}
+
+.tracking-pause {
+  background: #d99a32;
+}
+
+.tracking-stop {
+  background: #d74750;
+}
+
+.tracking-privacy {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: #7b8983;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Responsive layout */
+
+@media (max-width: 760px) {
+  .live-tracking-section {
+    padding: 56px 16px;
+  }
+
+  .tracking-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tracking-stat {
+    padding: 16px;
+  }
+
+  .tracking-map {
+    height: 420px;
+  }
+
+  .tracking-map-toolbar {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .live-tracking-heading p {
+    font-size: 14px;
+  }
+
+  .tracking-map {
+    height: 360px;
+  }
+
+  .tracking-map-toolbar {
+    align-items: flex-start;
+  }
+
+  .tracking-recenter-button {
+    padding: 10px;
+  }
+
+  .tracking-button {
+    width: 100%;
+  }
+}

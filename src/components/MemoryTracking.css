@@ -1,0 +1,560 @@
+/* COMRADE Memory & Tracking — clean dashboard layout */
+.memory-tracking-section {
+  padding: clamp(48px, 6vw, 88px) clamp(16px, 4.5vw, 64px);
+  background: #f5f5ef;
+  color: #123f35;
+}
+.memory-tracking-section * { box-sizing: border-box; }
+.mt-container { width: 100%; max-width: 1360px; margin: 0 auto; }
+.mt-heading { max-width: 760px; margin: 0 auto 30px; text-align: center; }
+.mt-eyebrow { display: inline-block; color: #b66a3c; font-size: .72rem; font-weight: 800; letter-spacing: .2em; }
+.mt-heading h2 { margin: 12px 0; color: #103f35; font-size: clamp(2rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.08; letter-spacing: -.055em; }
+.mt-heading h2 span { color: #c57a48; }
+.mt-heading p { max-width: 600px; margin: 0 auto; color: #65766f; font-size: 1rem; line-height: 1.7; }
+
+.mt-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 26px; }
+.mt-stat { display: flex; min-width: 0; align-items: center; gap: 13px; padding: 19px; border: 1px solid #e4e9e1; border-radius: 20px; background: rgba(255,255,255,.9); box-shadow: 0 8px 26px rgba(19,55,43,.045); }
+.mt-stat-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border-radius: 15px; background: #e7efe8; color: #0b604c; font-size: 1.4rem; }
+.mt-stat small { display: block; margin-bottom: 5px; color: #78877f; font-size: .67rem; font-weight: 800; letter-spacing: .12em; }
+.mt-stat strong { color: #123f35; font-size: .95rem; overflow-wrap: anywhere; }
+
+/* Dashboard: map, saved lists on the left; forms on the right. */
+.mt-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  grid-template-areas:
+    "map memory"
+    "saved memory"
+    "history location";
+  gap: 22px;
+  align-items: start;
+  width: 100%;
+  margin-top: 24px;
+}
+.mt-content-grid > * { min-width: 0; }
+.mt-map-card { grid-area: map; }
+.mt-memory-form { grid-area: memory; }
+.mt-location-form { grid-area: location; }
+.mt-saved-locations { grid-area: saved; }
+.mt-journey-history { grid-area: history; }
+.mt-map-card { min-width: 0; overflow: hidden; border: 1px solid #e2e8e0; border-radius: 22px; background: #fff; box-shadow: 0 12px 34px rgba(19,55,43,.06); }
+.mt-map-topline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 21px 24px; }
+.mt-map-topline strong { color: #123f35; font-size: 1.08rem; }
+.mt-map-topline p { margin: 5px 0 0; color: #7a8981; font-size: .85rem; line-height: 1.5; }
+.mt-live-indicator { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: #1d9c6b; box-shadow: 0 0 0 4px #e1f3e9; }
+.mt-map-shell { width: 100%; height: 360px; background: #e9eee9; }
+.mt-map { width: 100%; height: 100%; z-index: 1; }
+.mt-map-legend { display: flex; flex-wrap: wrap; gap: 12px 18px; padding: 14px 22px; border-bottom: 1px solid #e7ece5; background: #fff; color: #62736a; font-size: .8rem; }
+.mt-map-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.mt-legend-live { width: 10px; height: 10px; border: 2px solid #fff; border-radius: 50%; background: #16856b; box-shadow: 0 0 0 1px #16856b; }
+.mt-legend-route { width: 22px; height: 4px; border-radius: 4px; background: #ef8b3d; }
+.mt-legend-memory { font-style: normal; }
+.mt-tracking-panel { padding: 20px 22px 22px; }
+.mt-status-message { margin: 0 0 13px; color: #687970; font-size: .88rem; line-height: 1.55; }
+.mt-controls { display: flex; flex-wrap: wrap; gap: 10px; }
+.mt-button { display: inline-flex; justify-content: center; align-items: center; min-height: 46px; padding: 11px 16px; border: 1px solid transparent; border-radius: 12px; font: inherit; font-size: .86rem; font-weight: 750; text-align: center; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+.mt-button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 7px 16px rgba(15,74,56,.12); }
+.mt-button:disabled { opacity: .65; cursor: wait; }
+.mt-primary { background: #0b5946; color: #fff; }
+.mt-primary:hover:not(:disabled) { background: #0e6a52; }
+.mt-secondary { border-color: #f0dfd2; background: #f8eee6; color: #99542f; }
+.mt-outline { border-color: #d5e2d8; background: #fff; color: #155743; }
+.mt-privacy { margin: 15px 0 0; color: #7b8981; font-size: .76rem; line-height: 1.6; }
+
+/* Form cards */
+.mt-form { width: 100%; min-width: 0; padding: clamp(20px, 2vw, 28px); border: 1px solid #e2e8e0; border-radius: 22px; background: #fff; box-shadow: 0 12px 34px rgba(19,55,43,.055); }
+.mt-form-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.mt-form-heading > span { display: grid; place-items: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 15px; background: #f8eee6; color: #b86a3b; font-size: 1.35rem; }
+.mt-form-heading h3, .mt-gallery-heading h3 { margin: 0; color: #123f35; font-size: 1.25rem; font-weight: 800; letter-spacing: -.025em; }
+.mt-form-heading p { margin: 4px 0 0; color: #7a8981; font-size: .83rem; line-height: 1.5; }
+.mt-form label { display: block; margin: 15px 0 7px; color: #294f42; font-size: .82rem; font-weight: 750; }
+.mt-form input:not([type="file"]), .mt-form textarea { display: block; width: 100%; min-width: 0; padding: 12px 13px; border: 1px solid #dfe7df; border-radius: 12px; outline: none; background: #fdfefc; color: #173f33; font: inherit; font-size: .9rem; transition: border-color .18s ease, box-shadow .18s ease, background .18s ease; }
+.mt-form input:focus, .mt-form textarea:focus { border-color: #4c9a7b; background: #fff; box-shadow: 0 0 0 4px rgba(42,133,96,.1); }
+.mt-form textarea { min-height: 112px; resize: vertical; }
+.mt-location-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; margin-top: 17px; }
+.mt-location-heading label { margin: 0; }
+.mt-location-button { padding: 8px 10px; border: 1px solid #dce6dd; border-radius: 10px; background: #f8faf7; color: #135744; font-size: .75rem; font-weight: 750; cursor: pointer; }
+.mt-location-button:hover { background: #edf5ef; }
+.mt-help { margin: 9px 0; color: #7b8981; font-size: .76rem; line-height: 1.55; }
+.mt-coordinate-fields { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+.mt-coordinate-fields label { font-size: .75rem; }
+.mt-location-status { color: #137456; font-size: .8rem; line-height: 1.5; overflow-wrap: anywhere; }
+.mt-form input[type="file"] { width: 100%; max-width: 100%; color: #52645a; font-size: .78rem; }
+.mt-preview-wrap { margin-top: 12px; }
+.mt-preview { display: block; width: 100%; max-height: 220px; border-radius: 12px; object-fit: cover; }
+.mt-remove-photo { margin-top: 8px; border: 0; background: transparent; color: #a44f21; font-weight: 700; cursor: pointer; }
+.mt-save-button { width: 100%; margin-top: 20px; }
+.mt-error { padding: 10px 12px; border-radius: 9px; background: #fff0eb; color: #a33c24; font-size: .83rem; line-height: 1.5; overflow-wrap: anywhere; }
+
+/* Saved places and trip history */
+.mt-history-panel .mt-memory-list { gap: 12px; }
+.mt-history-panel .mt-memory-card { grid-template-columns: minmax(0, 1fr); }
+.mt-history-panel .mt-memory-card-body { padding: 14px; }
+.mt-gallery-section { margin-top: 42px; }
+.mt-gallery { min-width: 0; }
+.mt-gallery-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 20px; }
+.mt-gallery-heading h3 { margin-top: 7px; font-size: 1.45rem; }
+.mt-count { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border-radius: 50%; background: #e5efe7; color: #135943; font-weight: 800; }
+.mt-memory-list { display: grid; gap: 16px; }
+.mt-memory-card { display: grid; grid-template-columns: 130px minmax(0, 1fr); min-width: 0; overflow: hidden; border: 1px solid #e1e8df; border-radius: 18px; background: #fff; box-shadow: 0 8px 24px rgba(19,55,43,.04); }
+.mt-memory-card.is-selected { border-color: #c57a48; box-shadow: 0 0 0 3px rgba(197,122,72,.12); }
+.mt-memory-photo-button { display: block; width: 130px; min-height: 100%; padding: 0; border: 0; background: #edf1eb; cursor: pointer; }
+.mt-memory-photo { display: block; width: 100%; height: 100%; min-height: 170px; object-fit: cover; }
+.mt-memory-card-body { min-width: 0; padding: 18px; }
+.mt-memory-card-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.mt-memory-date, .mt-pinned-label { color: #87938c; font-size: .7rem; }
+.mt-pinned-label { color: #23785a; }
+.mt-memory-card h4 { margin: 9px 0 5px; color: #123f35; font-size: 1.05rem; overflow-wrap: anywhere; }
+.mt-memory-place { margin: 0 0 9px; color: #b66a3c; font-size: .8rem; overflow-wrap: anywhere; }
+.mt-memory-story { margin: 0; color: #687970; font-size: .84rem; line-height: 1.6; overflow-wrap: anywhere; white-space: pre-wrap; }
+.mt-memory-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; }
+.mt-memory-actions button { padding: 0; border: 0; background: transparent; color: #155743; font-size: .78rem; font-weight: 800; cursor: pointer; }
+.mt-memory-actions .mt-delete { color: #b24d36; }
+.mt-empty { padding: 28px 18px; border: 1px dashed #d8e3d9; border-radius: 16px; background: #fbfcf9; text-align: center; color: #718077; font-size: .86rem; line-height: 1.6; overflow-wrap: anywhere; }
+.mt-empty > span { color: #c57a48; font-size: 2rem; }
+.mt-empty h4 { margin: 8px 0; color: #123f35; }
+.mt-empty p { margin: 0; font-size: .86rem; }
+.mt-popup { max-width: 210px; color: #123f35; }
+.mt-popup img { display: block; width: 100%; max-height: 100px; margin-bottom: 8px; border-radius: 7px; object-fit: cover; }
+.mt-popup strong, .mt-popup span { display: block; }
+.mt-popup span, .mt-popup small { color: #b66a3c; font-size: .8rem; }
+.mt-popup p { margin: 7px 0; font-size: .8rem; line-height: 1.4; }
+
+ /* Current location marker */
+.ct-live-dot {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin: 3px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #4285F4;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Soft blue circle around the dot */
+.ct-live-dot span {
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(66, 133, 244, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Remove Leaflet's default marker styling */
+.ct-live-icon,
+.ct-memory-icon {
+  border: 0;
+  background: transparent;
+}
+.ct-memory-pin { font-size: 27px; line-height: 32px; filter: drop-shadow(0 2px 2px rgba(0,0,0,.25)); }
+
+/* Dropdown is rendered inside the map heading. */
+.mt-map-menu { position: relative; flex: 0 0 auto; z-index: 1000; }
+.mt-map-menu-trigger { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #e1e8e5; border-radius: 14px; background: #fff; color: #203b34; font-size: 28px; line-height: 1; cursor: pointer; box-shadow: 0 5px 18px rgba(25,55,45,.09); }
+.mt-map-menu-trigger:hover, .mt-map-menu-trigger:focus-visible { background: #f0f7f4; outline: 2px solid #16856b; outline-offset: 2px; }
+.mt-map-menu-dropdown { position: absolute; top: calc(100% + 8px); right: 0; width: min(290px, calc(100vw - 40px)); padding: 7px; border: 1px solid #e3eae7; border-radius: 16px; background: #fff; box-shadow: 0 18px 45px rgba(21,46,38,.18); z-index: 1200; }
+.mt-map-menu-dropdown button { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 9px 10px; border: 0; border-radius: 10px; background: transparent; text-align: left; color: #203b34; cursor: pointer; }
+.mt-map-menu-dropdown button:hover, .mt-map-menu-dropdown button:focus-visible { background: #f0f7f4; outline: none; }
+.mt-map-menu-dropdown button > span:first-child { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 34px; border-radius: 10px; background: #eef6f2; font-size: 17px; }
+.mt-map-menu-dropdown button > span:last-child { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mt-map-menu-dropdown strong { font-size: 13px; font-weight: 650; }
+.mt-map-menu-dropdown small { color: #718079; font-size: 11px; }
+
+@media (max-width: 1050px) {
+  .mt-content-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(290px, .85fr);
+    grid-template-areas:
+      "map memory"
+      "saved memory"
+      "history location";
+    gap: 16px;
+  }
+  .mt-stats { gap: 10px; }
+  .mt-stat { padding: 14px; }
+  .mt-stat-icon { width: 36px; height: 36px; flex-basis: 36px; }
+}
+@media (max-width: 850px) {
+  .mt-content-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "map" "saved" "history" "memory" "location";
+  }
+  .mt-map-shell { height: 340px; }
+  .mt-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .memory-tracking-section { padding: 48px 4%; }
+  .mt-heading { margin-bottom: 25px; }
+  .mt-stats { gap: 10px; }
+  .mt-stat { gap: 9px; padding: 13px 10px; border-radius: 15px; }
+  .mt-stat-icon { width: 34px; height: 34px; flex-basis: 34px; font-size: 1.1rem; }
+  .mt-stat strong { font-size: .84rem; }
+  .mt-map-topline { align-items: flex-start; padding: 17px; }
+  .mt-map-topline p { max-width: 230px; }
+  .mt-map-shell { height: 260px; }
+  .mt-map-legend { gap: 11px 14px; padding: 13px 15px; font-size: .76rem; }
+  .mt-tracking-panel { padding: 16px; }
+  .mt-controls { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .mt-button { width: 100%; }
+  .mt-form { padding: 18px; border-radius: 19px; }
+  .mt-coordinate-fields { gap: 8px; }
+  .mt-memory-card { grid-template-columns: 92px minmax(0, 1fr); }
+  .mt-memory-photo-button { width: 92px; }
+  .mt-memory-photo { min-height: 150px; }
+  .mt-memory-card-body { padding: 12px; }
+  .mt-memory-card h4 { font-size: .95rem; }
+  .mt-memory-story { font-size: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mt-button, .mt-location-button, .mt-memory-card { transition: none; }
+}
+
+/* Keep saved places and journey history compact as the lists grow. */
+.mt-history-panel .mt-memory-list {
+  max-height: 340px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #b7cbbd #f1f5f0;
+}
+.mt-history-panel .mt-memory-list::-webkit-scrollbar { width: 8px; }
+.mt-history-panel .mt-memory-list::-webkit-scrollbar-track { background: #f1f5f0; border-radius: 8px; }
+.mt-history-panel .mt-memory-list::-webkit-scrollbar-thumb { background: #b7cbbd; border-radius: 8px; }
+.mt-history-panel .mt-memory-list::-webkit-scrollbar-thumb:hover { background: #8eae9a; }
+
+/* COMRADE Luxury Nature polish — visual styling only; preserves the current layout */
+:root {
+  --mt-lux-ink: #17352f;
+  --mt-lux-green: #0b5d4b;
+  --mt-lux-green-deep: #084638;
+  --mt-lux-muted: #78857f;
+  --mt-lux-border: #e0e8e0;
+  --mt-lux-cream: #f7f6f0;
+  --mt-lux-champagne: #d9b779;
+}
+
+.memory-tracking-section {
+  background: var(--mt-lux-cream);
+  color: var(--mt-lux-ink);
+}
+.mt-heading h1,
+.mt-heading h2,
+.mt-form-heading h3,
+.mt-memory-card h4,
+.mt-map-topline h3 {
+  color: var(--mt-lux-ink);
+  letter-spacing: -0.025em;
+}
+.mt-heading p,
+.mt-form-heading p,
+.mt-map-topline p,
+.mt-empty {
+  color: var(--mt-lux-muted);
+}
+
+.mt-map-card,
+.mt-form,
+.mt-stat,
+.mt-gallery-section {
+  border: 1px solid var(--mt-lux-border);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(23, 53, 47, 0.045);
+}
+.mt-form-heading { gap: 13px; }
+.mt-form-heading > span,
+.mt-stat-icon {
+  border-radius: 15px;
+}
+.mt-form label {
+  color: #31564a;
+  font-weight: 600;
+}
+.mt-form input,
+.mt-form textarea,
+.mt-form select {
+  border: 1px solid #dce6dd;
+  border-radius: 12px;
+  background: #fdfefd;
+  color: var(--mt-lux-ink);
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.mt-form input:focus,
+.mt-form textarea:focus,
+.mt-form select:focus {
+  border-color: #5e9a7f;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11, 93, 75, .11);
+  background: #fff;
+}
+.mt-button,
+.mt-location-button,
+.mt-memory-actions button {
+  border-radius: 12px;
+  font-weight: 650;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.mt-button,
+.mt-location-button {
+  background: var(--mt-lux-green);
+  box-shadow: 0 5px 12px rgba(11, 93, 75, .12);
+}
+.mt-button:hover:not(:disabled),
+.mt-location-button:hover:not(:disabled) {
+  background: var(--mt-lux-green-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(11, 93, 75, .17);
+}
+.mt-memory-card {
+  border: 1px solid #e0e8e0;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff 0%, #fcfdfb 100%);
+  box-shadow: 0 3px 10px rgba(23, 53, 47, .025);
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.mt-memory-card:hover {
+  border-color: #c9d9cc;
+  box-shadow: 0 7px 18px rgba(23, 53, 47, .07);
+  transform: translateY(-1px);
+}
+.mt-memory-card h4 { margin-bottom: 5px; }
+.mt-memory-place { color: #b47755; }
+.mt-memory-actions { gap: 8px; }
+.mt-memory-actions button {
+  min-height: 34px;
+  padding: 7px 11px;
+  background: #edf5ef;
+  color: var(--mt-lux-green);
+}
+.mt-memory-actions button:hover {
+  background: #dfeee3;
+}
+.mt-memory-actions button.mt-delete {
+  background: #fff0ec;
+  color: #b64c3d;
+}
+.mt-memory-actions button.mt-delete:hover { background: #ffe2da; }
+.mt-history-panel .mt-memory-list {
+  max-height: 340px;
+  padding: 2px 8px 2px 2px;
+  scrollbar-color: #a8c2af #f3f6f2;
+}
+.mt-history-panel .mt-memory-list::-webkit-scrollbar-thumb { background: #a8c2af; }
+.mt-history-panel .mt-memory-list::-webkit-scrollbar-thumb:hover { background: #729a80; }
+.mt-stat { transition: transform .18s ease, box-shadow .18s ease; }
+.mt-stat:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(23, 53, 47, .07); }
+.mt-gallery-section { padding: 24px; }
+
+@media (max-width: 600px) {
+  .mt-map-card, .mt-form, .mt-stat, .mt-gallery-section { border-radius: 17px; }
+  .mt-memory-card:hover, .mt-stat:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mt-memory-card, .mt-stat, .mt-button, .mt-location-button, .mt-form input,
+  .mt-form textarea, .mt-form select { transition: none; }
+}
+
+/* Luxury Nature upgrade — Memory Gallery */
+.mt-gallery-section {
+  width: 100%;
+  margin-top: 28px;
+  padding: 26px;
+  border: 1px solid #e0e8df;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff 0%, #fbfcf8 100%);
+  box-shadow: 0 12px 34px rgba(25, 62, 47, 0.06);
+}
+.mt-gallery {
+  width: 100%;
+}
+.mt-gallery-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.mt-gallery-heading h3 {
+  margin: 5px 0 0;
+  color: #17352f;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  letter-spacing: -0.035em;
+}
+.mt-gallery-heading .mt-count {
+  display: inline-flex;
+  min-width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid #dce8dc;
+  border-radius: 14px;
+  background: #edf5ee;
+  color: #0b5d4b;
+  font-weight: 700;
+}
+.mt-gallery .mt-memory-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  align-items: start;
+  gap: 18px;
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+}
+.mt-gallery .mt-memory-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e0e8df;
+  border-radius: 19px;
+  background: #fff;
+  box-shadow: 0 5px 16px rgba(23, 53, 47, 0.045);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.mt-gallery .mt-memory-card:hover {
+  transform: translateY(-3px);
+  border-color: #c6d9c9;
+  box-shadow: 0 13px 26px rgba(23, 53, 47, 0.09);
+}
+.mt-gallery .mt-memory-photo-button {
+  display: block;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #edf2e9;
+  cursor: pointer;
+}
+.mt-gallery .mt-memory-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.mt-gallery .mt-memory-card:hover .mt-memory-photo {
+  transform: scale(1.035);
+}
+.mt-gallery .mt-memory-card-body {
+  padding: 16px 17px 17px;
+}
+.mt-gallery .mt-memory-card h4 {
+  margin: 9px 0 7px;
+  color: #17352f;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.mt-gallery .mt-memory-story {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.mt-gallery .mt-memory-card.is-selected {
+  border-color: #0b5d4b;
+  box-shadow: 0 0 0 3px rgba(11, 93, 75, 0.11);
+}
+.mt-gallery .mt-empty {
+  padding: 32px 18px;
+  border: 1px dashed #d6e2d5;
+  border-radius: 18px;
+  background: #f8faf6;
+  text-align: center;
+}
+.mt-gallery .mt-empty > span {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  margin-bottom: 8px;
+  border-radius: 14px;
+  background: #edf5ee;
+  color: #0b5d4b;
+  font-size: 1.5rem;
+}
+@media (max-width: 600px) {
+  .mt-gallery-section { padding: 17px; }
+  .mt-gallery .mt-memory-list { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .mt-gallery .mt-memory-photo-button { height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mt-gallery .mt-memory-card,
+  .mt-gallery .mt-memory-photo { transition: none; }
+}
+/* COMRADE: Current GPS location — blue dot */
+.ct-live-icon {
+  background: transparent !important;
+  border: none !important;
+}
+/* COMRADE: Google Maps-style current GPS location */
+
+.ct-live-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.ct-live-dot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin: 5px;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  background: #4285f4 !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Soft blue GPS accuracy circle */
+.ct-live-dot span {
+  position: absolute;
+  inset: -10px;
+  border: 2px solid rgba(66, 133, 244, 0.45);
+  border-radius: 50%;
+  background: rgba(66, 133, 244, 0.12);
+  pointer-events: none;
+  animation: ct-gps-pulse 2s ease-out infinite;
+}
+
+@keyframes ct-gps-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.9;
+  }
+
+  70% {
+    transform: scale(1.25);
+    opacity: 0.35;
+  }
+
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* GPS marker must remain above the map */
+.ct-live-icon,
+.ct-memory-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Blue GPS dot in the map legend */
+.mt-legend-live {
+  background: #4285f4 !important;
+  box-shadow: 0 0 0 1px #4285f4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ct-live-dot span {
+    animation: none;
+  }
+}
