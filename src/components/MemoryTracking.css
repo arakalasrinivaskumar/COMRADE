@@ -301,6 +301,9 @@
   background: var(--mt-lux-green);
   box-shadow: 0 5px 12px rgba(11, 93, 75, .12);
 }
+.mt-location-button {
+  color: #ffffff !important;
+}
 .mt-button:hover:not(:disabled),
 .mt-location-button:hover:not(:disabled) {
   background: var(--mt-lux-green-deep);
@@ -569,7 +572,7 @@
 }
 
 .mt-controls .mt-outline {
-  color: #075e4b;
+  color: #075e4b !important;
   background-color: #ffffff;
   border: 1px solid #075e4b;
 }

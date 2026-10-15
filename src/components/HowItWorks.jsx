@@ -94,6 +94,21 @@ function HowItWorks() {
           <span className="journey-footer-line" aria-hidden="true" />
           <p>Discover more. Experience more. Remember forever.</p>
         </div>
+
+        <div className="section-flow-action">
+          <button
+            type="button"
+            className="flow-down-button"
+            onClick={() =>
+              document.getElementById("discover")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            Explore &amp; Discover Places ↓
+          </button>
+        </div>
       </div>
 
       {/* Right side: Travel image */}

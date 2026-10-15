@@ -116,6 +116,21 @@ function Features() {
           <span className="features-note-line" aria-hidden="true" />
           <p>Less planning stress. More meaningful journeys.</p>
         </div>
+
+        <div className="section-flow-action">
+          <button
+            type="button"
+            className="flow-down-button"
+            onClick={() =>
+              document.getElementById("how-it-works")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            See How It Works ↓
+          </button>
+        </div>
       </div>
     </section>
   );

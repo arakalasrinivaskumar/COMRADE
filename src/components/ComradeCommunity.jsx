@@ -50,9 +50,33 @@ function ComradeMode() {
           </div>
         </div>
 
-        <a href="#join" className="comrade-community-button">
-          Join the Community <span>→</span>
-        </a>
+        <div className="comrade-community-actions">
+          <button
+            type="button"
+            className="comrade-community-button"
+            onClick={() =>
+              document.getElementById("sos")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            Travel Safety &amp; Emergency SOS ↓
+          </button>
+
+          <button
+            type="button"
+            className="comrade-community-secondary-button"
+            onClick={() =>
+              document.getElementById("join")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            Join COMRADE →
+          </button>
+        </div>
       </div>
 
       {/* RIGHT SIDE: TRAVEL IMAGE */}

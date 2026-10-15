@@ -242,6 +242,21 @@ function Discover({ onViewOnMap }) {
           </div>
         </div>
       )}
+
+      <div className="section-flow-action">
+        <button
+          type="button"
+          className="flow-down-button"
+          onClick={() =>
+            document.getElementById("destinations")?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            })
+          }
+        >
+          Explore Hyderabad Destinations ↓
+        </button>
+      </div>
     </section>
   );
 }

@@ -37,14 +37,11 @@ function Footer() {
 
         <div className="footer-column">
           <h4>Explore</h4>
-          <a href="#about" onClick={(event) => scrollTo(event, "#about")}>
-            About
+          <a href="#home" onClick={(event) => scrollTo(event, "#home")}>
+            Home
           </a>
           <a href="#features" onClick={(event) => scrollTo(event, "#features")}>
             Features
-          </a>
-          <a href="#discover" onClick={(event) => scrollTo(event, "#discover")}>
-            Discover
           </a>
           <a
             href="#how-it-works"
@@ -52,34 +49,46 @@ function Footer() {
           >
             How It Works
           </a>
+          <a href="#discover" onClick={(event) => scrollTo(event, "#discover")}>
+            Discover
+          </a>
+          <a
+            href="#destinations"
+            onClick={(event) => scrollTo(event, "#destinations")}
+          >
+            Destinations
+          </a>
         </div>
 
         <div className="footer-column">
           <h4>COMRADE</h4>
-          <a href="#features" onClick={(event) => scrollTo(event, "#features")}>
-            Local Lens
+          <a href="#memories" onClick={(event) => scrollTo(event, "#memories")}>
+            Memory &amp; Tracking
           </a>
-          <a href="#features" onClick={(event) => scrollTo(event, "#features")}>
-            Comrade Mode
+          <a href="#community" onClick={(event) => scrollTo(event, "#community")}>
+            Community
           </a>
           <a href="#sos" onClick={(event) => scrollTo(event, "#sos")}>
             Safety &amp; SOS
           </a>
           <a href="#join" onClick={(event) => scrollTo(event, "#join")}>
-            Join Us
+            Join COMRADE
           </a>
         </div>
 
         <div className="footer-column">
-          <h4>Connect</h4>
-          <a href="#join" onClick={(event) => scrollTo(event, "#join")}>
-            Join COMRADE
+          <h4>Quick Jump</h4>
+          <a href="#home" onClick={(event) => scrollTo(event, "#home")}>
+            Back to Top ↑
           </a>
           <a href="#features" onClick={(event) => scrollTo(event, "#features")}>
             Explore Features
           </a>
-          <a href="#about" onClick={(event) => scrollTo(event, "#about")}>
-            About COMRADE
+          <a href="#sos" onClick={(event) => scrollTo(event, "#sos")}>
+            Emergency SOS 🚨
+          </a>
+          <a href="#join" onClick={(event) => scrollTo(event, "#join")}>
+            Get Started →
           </a>
         </div>
       </div>

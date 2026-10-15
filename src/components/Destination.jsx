@@ -107,14 +107,14 @@ function Destination() {
             className="destination-explore-button"
             onClick={() =>
               document
-                .getElementById("destination-discoveries")
+                .getElementById("destination-explorer")
                 ?.scrollIntoView({
                   behavior: "smooth",
                   block: "start",
                 })
             }
           >
-            Find your next adventure <span>↗</span>
+            Explore Hyderabad spots <span>↓</span>
           </button>
         </div>
       </div>
@@ -470,6 +470,20 @@ function Destination() {
         <span className="destination-closing-note">
           Your Hyderabad story starts here.
         </span>
+
+        <button
+          type="button"
+          className="flow-down-button flow-down-dark"
+          style={{ marginTop: "18px" }}
+          onClick={() =>
+            document.getElementById("memories")?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            })
+          }
+        >
+          Explore Memory &amp; Live Tracking Map ↓
+        </button>
       </div>
     </section>
   );

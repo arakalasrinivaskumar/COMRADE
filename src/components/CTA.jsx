@@ -22,25 +22,25 @@ function CTA() {
 
         <div className="cta-buttons">
           <button
+            type="button"
             className="cta-primary"
             onClick={() =>
-              document.getElementById("features").scrollIntoView({
-                behavior: "smooth"
-              })
+              window.scrollTo({ top: 0, behavior: "smooth" })
             }
           >
-            Explore COMRADE →
+            Back to Top ↑
           </button>
 
           <button
+            type="button"
             className="cta-secondary"
             onClick={() =>
-              document.getElementById("about").scrollIntoView({
+              document.getElementById("features")?.scrollIntoView({
                 behavior: "smooth"
               })
             }
           >
-            Learn more
+            Explore Features →
           </button>
         </div>
       </div>

@@ -176,7 +176,18 @@ function SOS() {
             </p>
           </div>
 
-          <span className="sos-reminder-end">TRAVEL WISELY ↗</span>
+          <button
+            type="button"
+            className="sos-reminder-button"
+            onClick={() =>
+              document.getElementById("join")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            Ready for adventure? Join COMRADE ↓
+          </button>
         </div>
 
         <div className="sos-new-footer">

@@ -607,6 +607,21 @@ const handleUseLocation = () => {
             </article>)}</div>}
           </div>
         </div>
+
+        <div className="section-flow-action" style={{ marginTop: "40px" }}>
+          <button
+            type="button"
+            className="flow-down-button"
+            onClick={() =>
+              document.getElementById("community")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              })
+            }
+          >
+            Meet the COMRADE Community ↓
+          </button>
+        </div>
       </div>
     </section>
   );

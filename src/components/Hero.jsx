@@ -69,9 +69,17 @@ function Hero() {
           <button
             type="button"
             className="hero-primary"
+            onClick={() => scrollToSection("features")}
+          >
+            Explore COMRADE <span>↓</span>
+          </button>
+
+          <button
+            type="button"
+            className="hero-secondary"
             onClick={() => scrollToSection("discover")}
           >
-            Explore Places <span>↗</span>
+            Discover Places ↗
           </button>
 
           <button

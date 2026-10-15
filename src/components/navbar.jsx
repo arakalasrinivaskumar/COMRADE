@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 
 function Navbar({ currentPage, navigateTo }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,13 +36,13 @@ function Navbar({ currentPage, navigateTo }) {
       <button
         type="button"
         className="logo"
-        onClick={() => handleNavigation("home")}
+        onClick={() => scrollToSection("home")}
       >
-        COMRADE<span>┬«</span>
+        COMRADE<span>®</span>
       </button>
 
       <div className={`nav-links ${menuOpen ? "mobile-open" : ""}`}>
-        <button type="button" onClick={() => handleNavigation("home")}>
+        <button type="button" onClick={() => scrollToSection("home")}>
           Home
         </button>
 
@@ -55,9 +55,37 @@ function Navbar({ currentPage, navigateTo }) {
 
         <button
           type="button"
+          onClick={() => scrollToSection("how-it-works")}
+        >
+          How It Works
+        </button>
+
+        <button
+          type="button"
           onClick={() => scrollToSection("discover")}
         >
           Discover
+        </button>
+
+        <button
+          type="button"
+          onClick={() => scrollToSection("destinations")}
+        >
+          Destinations
+        </button>
+
+        <button
+          type="button"
+          onClick={() => scrollToSection("memories")}
+        >
+          Memories
+        </button>
+
+        <button
+          type="button"
+          onClick={() => scrollToSection("community")}
+        >
+          Community
         </button>
 
         <div className="travel-nav-dropdown">
@@ -67,7 +95,7 @@ function Navbar({ currentPage, navigateTo }) {
             aria-expanded={travelMenuOpen}
             onClick={() => setTravelMenuOpen((open) => !open)}
           >
-            My Travel Γû╛
+            My Travel ▾
           </button>
 
           {travelMenuOpen && (
@@ -76,56 +104,70 @@ function Navbar({ currentPage, navigateTo }) {
                 type="button"
                 onClick={() => handleNavigation("journey")}
               >
-                ≡ƒîì My Journey
+                🌍 My Journey
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("trips")}
               >
-                Γ£ê∩╕Å Trips
+                ✈️ Trips
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("bucketlist")}
               >
-                Γ¡É Bucket List
+                ⭐ Bucket List
               </button>
 
               <button
                 type="button"
                 onClick={() => handleNavigation("insights")}
               >
-                ≡ƒôè Insights
+                📊 Insights
               </button>
             </div>
           )}
         </div>
 
-        <button
-          type="button"
-          onClick={() => scrollToSection("community")}
-        >
-          Community
-        </button>
+        {/* Mobile-only CTA buttons so mobile menu flows top-to-down completely */}
+        <div className="mobile-nav-ctas">
+          <button
+            type="button"
+            className="nav-sos"
+            onClick={() => scrollToSection("sos")}
+          >
+            SOS <span>🚨</span>
+          </button>
+
+          <button
+            type="button"
+            className="nav-join"
+            onClick={() => scrollToSection("join")}
+          >
+            Join COMRADE →
+          </button>
+        </div>
       </div>
 
-      <button
-        type="button"
-        className="nav-sos"
-        onClick={() => scrollToSection("sos")}
-      >
-        SOS <span>≡ƒöö</span>
-      </button>
+      <div className="nav-desktop-actions">
+        <button
+          type="button"
+          className="nav-sos"
+          onClick={() => scrollToSection("sos")}
+        >
+          SOS <span>🚨</span>
+        </button>
 
-      <button
-        type="button"
-        className="nav-join"
-        onClick={() => scrollToSection("join")}
-      >
-        Join COMRADE ΓåÆ
-      </button>
+        <button
+          type="button"
+          className="nav-join"
+          onClick={() => scrollToSection("join")}
+        >
+          Join COMRADE →
+        </button>
+      </div>
 
       <button
         type="button"
@@ -134,7 +176,7 @@ function Navbar({ currentPage, navigateTo }) {
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={menuOpen}
       >
-        {menuOpen ? "Γ£ò" : "Γÿ░"}
+        {menuOpen ? "✕" : "☰"}
       </button>
     </nav>
   );
